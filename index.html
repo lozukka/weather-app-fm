@@ -76,18 +76,26 @@
       <section>
         <h1>How's the sky looking today?</h1>
         <form>
-          <input
-            type="text"
-            id="city"
-            placeholder="Search for a city, e.g., New York"
-          /><label for="city">Search for a city, e.g., New York</label>
-          <button>Search</button>
+          <div id="search-bar">
+            <img
+              src="./assets/images/icon-search.svg"
+              width="21"
+              height="21"
+              alt=""
+            />
+            <input
+              type="text"
+              id="city"
+              placeholder="Search for a city, e.g., New York"
+            /><label for="city">Search for a city, e.g., New York</label>
+          </div>
+          <button id="search-btn">Search</button>
         </form>
       </section>
       <section id="top-forecast">
         <div id="search-result">
-          <h2>city</h2>
-          <p>date</p>
+          <h2 id="search-result-city">city</h2>
+          <p id="search-result-date">date</p>
         </div>
 
         <div id="search-forecast">

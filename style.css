@@ -67,13 +67,13 @@
 }
 
 body {
-  background: lightgrey;
+  background: var(--color-neutral900);
   width: 100vw;
   height: 100vh;
   font-size: 18px;
   font-family: "DM Sans", sans-serif;
+  color: var(--color-neutral0);
 }
-
 header {
   display: flex;
 }
@@ -97,4 +97,8 @@ form label {
 }
 form button {
   width: 100vw;
+}
+#search-bar {
+  width: 100vw;
+  padding: 5px;
 }

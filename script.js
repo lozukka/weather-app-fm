@@ -2,7 +2,7 @@ let openDropdown = document.getElementById("open-units-dropdown");
 let dropdown = document.getElementById("dropdown");
 let searchBtn = document.getElementById("search-btn");
 
-openDropdown.addEventListener("click", (event) => {
+openDropdown.addEventListener("click", () => {
   if (dropdown.style.display === "block") {
     dropdown.style.display = "none";
   } else {
@@ -13,7 +13,7 @@ openDropdown.addEventListener("click", (event) => {
 searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
   let city = document.getElementById("city").value;
-  getCordinates(city);
+  getCoordinates(city);
   let resultCityDisplay = document.getElementById("search-result-city");
   resultCityDisplay.textContent = city;
 
@@ -30,8 +30,7 @@ searchBtn.addEventListener("click", (event) => {
   resultDateDisplay.textContent = formatted;
 });
 
-function getCordinates(city) {
-  //const city = "Helsinki";
+function getCoordinates(city) {
   const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
     city
   )}&count=1&language=fi&format=json`;
@@ -46,6 +45,19 @@ function getCordinates(city) {
       console.log(`Kaupunki: ${name}, ${country} (${latitude}, ${longitude})`);
 
       // Tässä kohtaa voit käyttää koordinaatteja säähaussa
+      const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+
+      fetch(weatherUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const temp = data.current_weather.temperature;
+          console.log(`Lämpötila ${name}-kaupungissa: ${temp}°C`);
+          console.log(data);
+          let resultTemperature = document.getElementById(
+            "search-result-temperature"
+          );
+          resultTemperature.textContent = `${temp}°C`;
+        });
     })
     .catch((err) => console.error(err));
 }

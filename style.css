@@ -1,50 +1,100 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* dm-sans-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/dm-sans-v16-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* dm-sans-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/dm-sans-v16-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* dm-sans-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/dm-sans-v16-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* dm-sans-600italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 600;
+  src: url("./assets/fonts/dm-sans-v16-latin-600italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* dm-sans-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/dm-sans-v16-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* bricolage-grotesque-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/bricolage-grotesque-v8-latin-700.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-:root{
-    --color-neutral900: hsl(243, 96%, 9%);
-    --color-neutral800: hsl(243, 27%, 20%);
-    --color-neutral700: hsl(243, 23%, 24%);
-    --color-neutral600: hsl(243, 23%, 30%);
-    --color-neutral300: hsl(240, 6%, 70%);
-    --color-neutral200: hsl(250, 6%, 84%);
-    --color-neutral0: hsl(0, 0%, 100%);
-    --color-orange500: hsl(28, 100%, 52%);
-    --color-blue500: hsl(233, 67%, 56%);
-    --color-blue700: hsl(248, 70%, 36%);
-}
- 
-body{
-    background: lightgrey;
-    width: 100vw;
-    height: 100vh;
+:root {
+  --color-neutral900: hsl(243, 96%, 9%);
+  --color-neutral800: hsl(243, 27%, 20%);
+  --color-neutral700: hsl(243, 23%, 24%);
+  --color-neutral600: hsl(243, 23%, 30%);
+  --color-neutral300: hsl(240, 6%, 70%);
+  --color-neutral200: hsl(250, 6%, 84%);
+  --color-neutral0: hsl(0, 0%, 100%);
+  --color-orange500: hsl(28, 100%, 52%);
+  --color-blue500: hsl(233, 67%, 56%);
+  --color-blue700: hsl(248, 70%, 36%);
 }
 
-header{
-    display: flex;
-    
+body {
+  background: lightgrey;
+  width: 100vw;
+  height: 100vh;
+  font-size: 18px;
+  font-family: "DM Sans", sans-serif;
 }
-#dropdown{
-    display: none;
+
+header {
+  display: flex;
 }
-#top-forecast{
-    width: 343px;
-    height: 286px;
-    background-image: url(./assets/images/bg-today-small.svg);
-    background-repeat: no-repeat;
+#dropdown {
+  display: none;
 }
-#bottom-forecast{
-    display: flex;
+#top-forecast {
+  width: 343px;
+  height: 286px;
+  background-image: url(./assets/images/bg-today-small.svg);
+  background-repeat: no-repeat;
+}
+#bottom-forecast {
+  display: flex;
 }
 form input {
-    width: 100vw;
+  width: 100vw;
 }
 form label {
-    display: none;
+  display: none;
 }
-form button{
-    width: 100vw;
+form button {
+  width: 100vw;
 }

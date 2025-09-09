@@ -1,90 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
-  
-  <title>Frontend Mentor | Weather app</title>
-</head>
-<body>
-  <header>
-    <img src="./assets/images/logo.svg" alt="logo">
-    <section>
-      <button id="open-units-dropdown"><img src="./assets/images/icon-units.svg" alt=""> Units <img src="./assets/images/icon-dropdown.svg" alt=""></button>
-      <section id="dropdown">
-        <h2>Switch to Imperial/Metric</h2>
-        <fieldset>
-          <h3>Temperature</h3>
-            <input type="radio" id="celsius" name="temperature" value="celsius" checked><label for="celsius">Celsius (°C)</label>
-            <input type="radio" id="fahrenheit" name="temperature" value="fahrenheit"><label for="fahrenheit">Fahrenheit (°F)</label>
-        </fieldset>
-        <fieldset>
-          <h3>Wind Speed</h3>
-          <input type="radio" id="km/h" name="wind-speed" value="km/h" checked><label for="km/h">km/h</label>
-          <input type="radio" id="mph" name="wind-speed" value="mph" ><label for="mph">mph</label>
-        </fieldset>
-      <fieldset>
-        <h3>Precipitation</h3>
-        <input type="radio" id="mm" name="precipitation" value="mm" checked><label for="mm">Millimeters (mm)</label>
-        <input type="radio" id="in" name="precipitation" value="in" ><label for="in">Inches (in)</label>
-      </fieldset>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Weather app</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/images/logo.svg" alt="logo" />
+      <section>
+        <button id="open-units-dropdown">
+          <img src="./assets/images/icon-units.svg" alt="" /> Units
+          <img src="./assets/images/icon-dropdown.svg" alt="" />
+        </button>
+        <section id="dropdown">
+          <h2>Switch to Imperial/Metric</h2>
+          <fieldset>
+            <h3>Temperature</h3>
+            <input
+              type="radio"
+              id="celsius"
+              name="temperature"
+              value="celsius"
+              checked
+            /><label for="celsius">Celsius (°C)</label>
+            <input
+              type="radio"
+              id="fahrenheit"
+              name="temperature"
+              value="fahrenheit"
+            /><label for="fahrenheit">Fahrenheit (°F)</label>
+          </fieldset>
+          <fieldset>
+            <h3>Wind Speed</h3>
+            <input
+              type="radio"
+              id="km/h"
+              name="wind-speed"
+              value="km/h"
+              checked
+            /><label for="km/h">km/h</label>
+            <input type="radio" id="mph" name="wind-speed" value="mph" /><label
+              for="mph"
+              >mph</label
+            >
+          </fieldset>
+          <fieldset>
+            <h3>Precipitation</h3>
+            <input
+              type="radio"
+              id="mm"
+              name="precipitation"
+              value="mm"
+              checked
+            /><label for="mm">Millimeters (mm)</label>
+            <input type="radio" id="in" name="precipitation" value="in" /><label
+              for="in"
+              >Inches (in)</label
+            >
+          </fieldset>
+        </section>
       </section>
-    </section>
-  </header>
+    </header>
 
-  <main>
-   <section>
-    <h1>How's the sky looking today?</h1>
-      <form>
-        <input type="text" id="city" placeholder="Search for a city, e.g., New York"><label for="city">Search for a city, e.g., New York</label>
-        <button>Search</button>
-      </form>
-    </section>
-<section id="top-forecast">
-<div id="search-result"><h2>city</h2>
-<p>date</p></div>
-  
-<div id="search-forecast">
-  <img src="./assets/images/icon-fog.webp" height="50px" width="50px" alt="">
-<p>20</p>
-</div>
+    <main>
+      <section>
+        <h1>How's the sky looking today?</h1>
+        <form>
+          <input
+            type="text"
+            id="city"
+            placeholder="Search for a city, e.g., New York"
+          /><label for="city">Search for a city, e.g., New York</label>
+          <button>Search</button>
+        </form>
+      </section>
+      <section id="top-forecast">
+        <div id="search-result">
+          <h2>city</h2>
+          <p>date</p>
+        </div>
 
-</section>
-    <section id="bottom-forecast">
-      <div><h4>Feels like</h4>
+        <div id="search-forecast">
+          <img
+            src="./assets/images/icon-fog.webp"
+            height="50px"
+            width="50px"
+            alt=""
+          />
+          <p>20</p>
+        </div>
+      </section>
+      <section id="bottom-forecast">
+        <div>
+          <h4>Feels like</h4>
 
-  <!-- Insert temperature here --></div>
-      <div><h4>Humidity</h4>
-  
-  <!-- Insert humidity here --></div>
-<div><h4>Wind</h4>
-  
-  <!-- Insert wind here --> </div>
-  <div><h4>Precipitation</h4>
-  
-  <!-- Insert precipitation here --></div>
-  
-    </section>
+          <!-- Insert temperature here -->
+        </div>
+        <div>
+          <h4>Humidity</h4>
 
-    <section id="daily-forecast">
-      <h3>Daily forecast</h3>
-  
-  <!-- Insert daily forecast for the next 7 days here -->
-    </section>
-    <section id="hourly-forecast">
-      <h3>Hourly forecast</h3>
+          <!-- Insert humidity here -->
+        </div>
+        <div>
+          <h4>Wind</h4>
 
-  <!-- Insert hourly forecast for the selected day here -->
-    </section>
-  </main>
+          <!-- Insert wind here -->
+        </div>
+        <div>
+          <h4>Precipitation</h4>
 
-  <footer>
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by Lotta.
-  </footer>
-</body>
-<script src="script.js" defer></script>
+          <!-- Insert precipitation here -->
+        </div>
+      </section>
+
+      <section id="daily-forecast">
+        <h3>Daily forecast</h3>
+
+        <!-- Insert daily forecast for the next 7 days here -->
+      </section>
+      <section id="hourly-forecast">
+        <h3>Hourly forecast</h3>
+
+        <!-- Insert hourly forecast for the selected day here -->
+      </section>
+    </main>
+
+    <footer>
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by Lotta.
+    </footer>
+  </body>
+  <script src="script.js" defer></script>
 </html>

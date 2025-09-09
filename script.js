@@ -44,7 +44,6 @@ function getCoordinates(city) {
       const { latitude, longitude, name, country } = data.results[0];
       console.log(`Kaupunki: ${name}, ${country} (${latitude}, ${longitude})`);
 
-      // Tässä kohtaa voit käyttää koordinaatteja säähaussa
       const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
 
       fetch(weatherUrl)

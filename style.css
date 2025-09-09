@@ -77,6 +77,11 @@ body {
 header {
   display: flex;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #dropdown {
   display: none;
 }
@@ -85,6 +90,46 @@ header {
   height: 286px;
   background-image: url(./assets/images/bg-today-small.svg);
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+#search-result {
+  margin: 0 auto;
+}
+#search-result-city {
+  font-size: 28px;
+  line-height: 120%;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+#search-result-date {
+  text-align: center;
+  opacity: 0.8;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0;
+  font-size: 18px;
+}
+.weatcher-icon {
+  height: 120px;
+  width: 120px;
+}
+#search-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#search-forecast p {
+  font-size: 96px;
+  font-style: italic;
+  line-height: 100%;
+  font-weight: 600;
+  letter-spacing: -2px;
 }
 #bottom-forecast {
   display: flex;

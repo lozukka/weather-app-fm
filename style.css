@@ -1,6 +1,5 @@
 *{
     box-sizing: border-box;
-    border: 2px solid black;
     margin: 0;
     padding: 0;
 }
@@ -17,7 +16,7 @@
     --color-blue500: hsl(233, 67%, 56%);
     --color-blue700: hsl(248, 70%, 36%);
 }
-
+ 
 body{
     background: lightgrey;
     width: 100vw;
@@ -30,4 +29,22 @@ header{
 }
 #dropdown{
     display: none;
+}
+#top-forecast{
+    width: 343px;
+    height: 286px;
+    background-image: url(./assets/images/bg-today-small.svg);
+    background-repeat: no-repeat;
+}
+#bottom-forecast{
+    display: flex;
+}
+form input {
+    width: 100vw;
+}
+form label {
+    display: none;
+}
+form button{
+    width: 100vw;
 }

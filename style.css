@@ -1,0 +1,9 @@
+body{
+    background: lightgrey;
+}
+*{
+    box-sizing: border-box;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+}

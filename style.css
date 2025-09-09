@@ -1,9 +1,31 @@
-body{
-    background: lightgrey;
-}
 *{
     box-sizing: border-box;
     border: 2px solid black;
     margin: 0;
     padding: 0;
+}
+
+:root{
+    --color-neutral900: hsl(243, 96%, 9%);
+    --color-neutral800: hsl(243, 27%, 20%);
+    --color-neutral700: hsl(243, 23%, 24%);
+    --color-neutral600: hsl(243, 23%, 30%);
+    --color-neutral300: hsl(240, 6%, 70%);
+    --color-neutral200: hsl(250, 6%, 84%);
+    --color-neutral0: hsl(0, 0%, 100%);
+    --color-orange500: hsl(28, 100%, 52%);
+    --color-blue500: hsl(233, 67%, 56%);
+    --color-blue700: hsl(248, 70%, 36%);
+}
+
+body{
+    background: lightgrey;
+}
+
+header{
+    display: flex;
+    background: var(--color-neutral900);
+}
+#dropdown{
+    display: none;
 }

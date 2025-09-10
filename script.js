@@ -19,9 +19,9 @@ searchBtn.addEventListener("click", async (event) => {
     const { latitude, longitude, name, country } = await getCoordinates(city);
 
     // Vaihe 2: hae sää
-    await getWeather(latitude, longitude, name);
+    const data = await getWeather(latitude, longitude);
 
-    // Vaihe 3: näytä päivämäärä
+    // Vaihe 3: näytä päivämäärä (irrota myöhemmin omaksi funktiokseen)
     let searchDate = new Date();
     let options = {
       weekday: "long",
@@ -35,6 +35,9 @@ searchBtn.addEventListener("click", async (event) => {
 
     // Tyhjennä syötekenttä
     document.getElementById("city").value = "";
+
+    //Vaihe 4: renderöi sää
+    renderWeather(data);
   } catch (err) {
     console.error("Virhe haussa:", err);
   }
@@ -62,12 +65,14 @@ async function getCoordinates(city) {
 }
 
 // --- Funktio sään hakuun ---
-async function getWeather(latitude, longitude, cityName) {
+async function getWeather(latitude, longitude) {
   const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,relativehumidity_2m,windspeed_10m,precipitation&timezone=auto`;
 
   const response = await fetch(weatherUrl);
-  const data = await response.json();
-
+  return response.json();
+}
+// --- Funktio sään renderöintiin ---
+function renderWeather(data) {
   const now = new Date();
   const times = data.hourly.time;
   const startIndex = times.findIndex((t) => new Date(t) >= now);
@@ -78,8 +83,4 @@ async function getWeather(latitude, longitude, cityName) {
   )}°`;
 
   console.log(data);
-
-  console.log(
-    `Lämpötila ${cityName}-kaupungissa: ${data.hourly.temperature_2m[startIndex]}°C`
-  );
 }

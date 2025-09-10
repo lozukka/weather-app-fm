@@ -14,8 +14,6 @@ searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
   let city = document.getElementById("city").value;
   getCoordinates(city);
-  let resultCityDisplay = document.getElementById("search-result-city");
-  resultCityDisplay.textContent = city;
 
   let searchDate = new Date();
   let options = {
@@ -43,7 +41,8 @@ function getCoordinates(city) {
       }
       const { latitude, longitude, name, country } = data.results[0];
       console.log(`Kaupunki: ${name}, ${country} (${latitude}, ${longitude})`);
-
+      let resultCityDisplay = document.getElementById("search-result-city");
+      resultCityDisplay.textContent = `${city}, ${country}`;
       const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
 
       fetch(weatherUrl)
@@ -55,7 +54,7 @@ function getCoordinates(city) {
           let resultTemperature = document.getElementById(
             "search-result-temperature"
           );
-          resultTemperature.textContent = `${temp}°C`;
+          resultTemperature.textContent = `${Math.trunc(temp)}°`;
         });
     })
     .catch((err) => console.error(err));

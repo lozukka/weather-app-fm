@@ -100,6 +100,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--fs-l);
 }
 /*--------search-section---------*/
 #search-section {
@@ -118,16 +119,27 @@ h1 {
 }
 #search-bar {
   width: 91.467vw;
+  height: 8.3vh;
   padding: 5px;
+  background: var(--color-neutral800);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
 }
 form input {
   width: 80%;
-  color: var(--color-neutral300);
+  color: var(--color-neutral200);
+  opacity: 1;
+  background: none;
+  border: none;
 }
 form label {
   display: none;
@@ -141,6 +153,9 @@ form button {
   height: 8.3vh;
   font-size: var(--fs-s);
   line-height: var(--lh-120);
+}
+form button:hover {
+  background: var(--color-blue700);
 }
 /*--------top-forecast---------*/
 #top-forecast {

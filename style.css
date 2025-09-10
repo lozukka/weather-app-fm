@@ -74,17 +74,50 @@ body {
   font-family: "DM Sans", sans-serif;
   color: var(--color-neutral0);
 }
+/*--------header---------*/
 header {
   display: flex;
 }
+
+#dropdown {
+  display: none;
+}
+/*--------main---------*/
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#dropdown {
+/*--------search-section---------*/
+#search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+h1 {
+  font-size: 52px;
+  line-height: 120%;
+  letter-spacing: 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  margin-block: 0px;
+  margin: 16px;
+  text-align: center;
+}
+#search-bar {
+  width: 100vw;
+  padding: 5px;
+}
+form input {
+  width: 100vw;
+}
+form label {
   display: none;
 }
+form button {
+  width: 100vw;
+}
+/*--------top-forecast---------*/
 #top-forecast {
   width: 343px;
   height: 286px;
@@ -131,19 +164,9 @@ main {
   font-weight: 600;
   letter-spacing: -2px;
 }
+/*--------bottom-forecast---------*/
 #bottom-forecast {
   display: flex;
 }
-form input {
-  width: 100vw;
-}
-form label {
-  display: none;
-}
-form button {
-  width: 100vw;
-}
-#search-bar {
-  width: 100vw;
-  padding: 5px;
-}
+
+/*--------footer---------*/

@@ -156,12 +156,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: var(--fs-l);
+  width: 100vw;
 }
 /*--------search-section---------*/
 #search-section {
   display: flex;
   flex-direction: column;
+  padding-top: 48px;
   gap: 48px;
 }
 h1 {
@@ -261,6 +264,30 @@ form button:hover {
 /*--------bottom-forecast---------*/
 #bottom-forecast {
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
 }
-
+#bottom-forecast div {
+  background-color: var(--color-neutral700);
+  border-radius: 12px;
+  padding: 20px;
+  width: 163px;
+}
+#bottom-forecast div h4 {
+  line-height: var(--lh-120);
+  color: var(--color-neutral200);
+  margin-block: 0;
+  margin-bottom: 24px;
+}
+#bottom-forecast div p {
+  font-weight: 300;
+  line-height: var(--lh-100);
+  font-size: var(--fs-l);
+}
 /*--------footer---------*/
+footer {
+  font-size: var(--fs-xxxs);
+  text-align: center;
+}

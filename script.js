@@ -26,6 +26,7 @@ searchBtn.addEventListener("click", (event) => {
   console.log(formatted);
   let resultDateDisplay = document.getElementById("search-result-date");
   resultDateDisplay.textContent = formatted;
+  document.getElementById("city").value = ``;
 });
 
 function getCoordinates(city) {
@@ -43,18 +44,26 @@ function getCoordinates(city) {
       console.log(`Kaupunki: ${name}, ${country} (${latitude}, ${longitude})`);
       let resultCityDisplay = document.getElementById("search-result-city");
       resultCityDisplay.textContent = `${city}, ${country}`;
-      const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+      const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,relativehumidity_2m,windspeed_10m,precipitation&timezone=auto`;
 
       fetch(weatherUrl)
         .then((response) => response.json())
         .then((data) => {
-          const temp = data.current_weather.temperature;
+          const temp = data.hourly.temperature_2m;
           console.log(`Lämpötila ${name}-kaupungissa: ${temp}°C`);
           console.log(data);
           let resultTemperature = document.getElementById(
             "search-result-temperature"
           );
-          resultTemperature.textContent = `${Math.trunc(temp)}°`;
+          //resultTemperature.textContent = `${Math.trunc(temp)}°`;
+          const now = new Date();
+          const times = data.hourly.time;
+          const startIndex = times.findIndex((t) => new Date(t) >= now);
+
+          console.log(
+            times[startIndex],
+            data.hourly.temperature_2m[startIndex]
+          );
         });
     })
     .catch((err) => console.error(err));

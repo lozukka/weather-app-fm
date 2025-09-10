@@ -221,6 +221,7 @@ form button:hover {
   width: 91.467vw;
   height: 42.879vh;
   background-image: url(./assets/images/bg-today-small.svg);
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;

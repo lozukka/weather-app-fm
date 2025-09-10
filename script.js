@@ -21,17 +21,8 @@ searchBtn.addEventListener("click", async (event) => {
     // Vaihe 2: hae sää
     const data = await getWeather(latitude, longitude);
 
-    // Vaihe 3: näytä päivämäärä (irrota myöhemmin omaksi funktiokseen)
-    let searchDate = new Date();
-    let options = {
-      weekday: "long",
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    };
-    let formatted = searchDate.toLocaleDateString("en-US", options);
-    let resultDateDisplay = document.getElementById("search-result-date");
-    resultDateDisplay.textContent = formatted;
+    // Vaihe 3: näytä päivämäärä
+    renderDate();
 
     // Tyhjennä syötekenttä
     document.getElementById("city").value = "";
@@ -106,4 +97,17 @@ function renderWeather(data) {
     resultWind.textContent,
     resultPrecipitation.textContent
   );
+}
+
+function renderDate() {
+  let searchDate = new Date();
+  let options = {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  };
+  let formatted = searchDate.toLocaleDateString("en-US", options);
+  let resultDateDisplay = document.getElementById("search-result-date");
+  resultDateDisplay.textContent = formatted;
 }

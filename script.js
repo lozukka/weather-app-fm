@@ -81,6 +81,29 @@ function renderWeather(data) {
   resultTemperature.textContent = `${Math.trunc(
     data.hourly.temperature_2m[startIndex]
   )}°`;
+  let resultFeelsLike = document.getElementById("feels-like-p");
+  resultFeelsLike.textContent = `${Math.trunc(
+    data.hourly.apparent_temperature[startIndex]
+  )}°`;
+  let resultHumidity = document.getElementById("humidity-p");
+  resultHumidity.textContent = `${Math.trunc(
+    data.hourly.relativehumidity_2m[startIndex]
+  )}%`;
+  let resultWind = document.getElementById("wind-p");
+  resultWind.textContent = `${Math.trunc(
+    data.hourly.windspeed_10m[startIndex]
+  )}km/h`;
+  let resultPrecipitation = document.getElementById("precipitation-p");
+  resultPrecipitation.textContent = `${Math.trunc(
+    data.hourly.precipitation[startIndex]
+  )}mm`;
 
   console.log(data);
+  console.log(
+    resultTemperature.textContent,
+    resultFeelsLike.textContent,
+    resultHumidity.textContent,
+    resultWind.textContent,
+    resultPrecipitation.textContent
+  );
 }

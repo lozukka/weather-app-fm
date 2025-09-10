@@ -51,6 +51,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 18px;
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: 0;
+  color: var(--color-neutral0);
 }
 
 :root {
@@ -64,15 +68,24 @@
   --color-orange500: hsl(28, 100%, 52%);
   --color-blue500: hsl(233, 67%, 56%);
   --color-blue700: hsl(248, 70%, 36%);
+  /*-----fonts------*/
+  --fs-xxl: 5.3rem; /*96px*/
+  --fs-xl: 2.889rem; /*52px*/
+  --fs-l: 1.7rem; /*32px*/
+  --fs-m: 1.5rem; /*28px*/
+  --fs-s: 1.1rem; /*20px*/
+  --fs-xs: 1rem; /*18px*/
+  --fs-xxs: 0.8rem; /*16px*/
+  --fs-xxxs: 0.7rem; /*14px*/
+  /*----line-height----*/
+  --lh-120: 120%;
+  --lh-100: 100%;
 }
 
 body {
   background: var(--color-neutral900);
   width: 100vw;
   height: 100vh;
-  font-size: 18px;
-  font-family: "DM Sans", sans-serif;
-  color: var(--color-neutral0);
 }
 /*--------header---------*/
 header {
@@ -95,9 +108,8 @@ main {
   gap: 48px;
 }
 h1 {
-  font-size: 52px;
-  line-height: 120%;
-  letter-spacing: 0;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-120);
   font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 700;
   margin-block: 0px;
@@ -105,22 +117,35 @@ h1 {
   text-align: center;
 }
 #search-bar {
-  width: 100vw;
+  width: 91.467vw;
   padding: 5px;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 form input {
-  width: 100vw;
+  width: 80%;
+  color: var(--color-neutral300);
 }
 form label {
   display: none;
 }
 form button {
-  width: 100vw;
+  width: 91.467vw;
+  background-color: var(--color-blue500);
+  color: var(--color-neutral0);
+  border: none;
+  border-radius: 12px;
+  height: 8.3vh;
+  font-size: var(--fs-s);
+  line-height: var(--lh-120);
 }
 /*--------top-forecast---------*/
 #top-forecast {
-  width: 343px;
-  height: 286px;
+  width: 91.467vw;
+  height: 42.879vh;
   background-image: url(./assets/images/bg-today-small.svg);
   background-repeat: no-repeat;
   display: flex;
@@ -133,9 +158,8 @@ form button {
   margin: 0 auto;
 }
 #search-result-city {
-  font-size: 28px;
-  line-height: 120%;
-  letter-spacing: 0;
+  font-size: var(--fs-m);
+  line-height: var(--lh-120);
   font-weight: 600;
   margin-bottom: 12px;
   text-align: center;
@@ -144,9 +168,8 @@ form button {
   text-align: center;
   opacity: 0.8;
   font-weight: 500;
-  line-height: 120%;
-  letter-spacing: 0;
-  font-size: 18px;
+  line-height: var(--lh-120);
+  font-size: var(--fs-xs);
 }
 .weatcher-icon {
   height: 120px;
@@ -158,9 +181,9 @@ form button {
   justify-content: center;
 }
 #search-forecast p {
-  font-size: 96px;
+  font-size: var(--fs-xxl);
   font-style: italic;
-  line-height: 100%;
+  line-height: var(--lh-100);
   font-weight: 600;
   letter-spacing: -2px;
 }

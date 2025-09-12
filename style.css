@@ -259,7 +259,7 @@ form button:hover {
   line-height: var(--lh-120);
   font-size: var(--fs-xs);
 }
-.weatcher-icon {
+#search-forecast img {
   height: 120px;
   width: 120px;
 }

@@ -289,31 +289,36 @@ form button:hover {
 }
 /*--------daily-forecast---------*/
 #daily-forecast {
-  display: flex;
-  flex-direction: column;
+  width: 91.467vw;
+}
+#daily-forecast h3 {
+  margin-bottom: 20px;
+  line-height: var(--lh-120);
+  font-size: var(--fs-s);
 }
 #daily-cards {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 16px;
+  width: 100%;
 }
 .daily-card {
   background: var(--color-neutral700);
   border: 1px solid var(--color-neutral600);
   border-radius: 12px;
+  padding: 10px;
   width: 100px;
   height: 165px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
 }
 .daily-card h4 {
   line-height: var(--lh-120);
   color: var(--color-neutral200);
   margin-block: 0;
-  margin-bottom: 24px;
 }
 .daily-card img {
   width: 60px;
@@ -321,7 +326,12 @@ form button:hover {
 }
 .daily-temperatures {
   display: flex;
+  width: 100%;
   justify-content: space-between;
+}
+.daily-temperatures p {
+  line-height: var(--lh-120);
+  font-weight: 500;
 }
 /*--------footer---------*/
 footer {

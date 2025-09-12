@@ -333,6 +333,7 @@ form button:hover {
   line-height: var(--lh-120);
   font-weight: 500;
 }
+/*--------hourly-forecast---------*/
 /*--------footer---------*/
 footer {
   font-size: var(--fs-xxxs);

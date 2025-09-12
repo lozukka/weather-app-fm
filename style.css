@@ -333,7 +333,82 @@ form button:hover {
   line-height: var(--lh-120);
   font-weight: 500;
 }
+/*--------hourly-dropdown---------*/
+#hourly-dropdown {
+  display: none;
+}
 /*--------hourly-forecast---------*/
+#hourly-forecast {
+  width: 91.467vw;
+  background: var(--color-neutral800);
+  border-radius: 20px;
+  padding: 20px 16px;
+}
+#hourly-forecast-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 100%;
+}
+#hourly-forecast-heading h3 {
+  margin-block: 0;
+  font-size: var(--fs-s);
+  line-height: var(--lh-120);
+  font-weight: 500;
+  margin-right: 20px;
+}
+#hourly-forecast-heading button {
+  background: var(--color-neutral600);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-xxs);
+  gap: 12px;
+  width: 120px;
+  height: 37px;
+}
+#hourly-forecast-heading button img {
+  width: 12px;
+  height: 18px;
+}
+#hourly-cards {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+.hourly-card {
+  background: var(--color-neutral700);
+  border: 1px solid var(--color-neutral600);
+  border-radius: 8px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px 10px 12px;
+}
+.hourly-card div {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+.hourly-card div img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+.hourly-card div p {
+  font-size: var(--fs-s);
+  line-height: var(--lh-120);
+}
+.hourly-card p {
+  font-size: var(--fs-xs);
+  line-height: var(--lh-120);
+}
+
 /*--------footer---------*/
 footer {
   font-size: var(--fs-xxxs);

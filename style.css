@@ -160,6 +160,16 @@ main {
   gap: var(--fs-l);
   width: 100vw;
 }
+/*--------grid-wrapper---------*/
+#grid-wrapper {
+  @media (min-width: 1280px) {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 30px;
+    width: 95vw;
+  }
+}
 /*--------search-section---------*/
 #search-section {
   display: flex;
@@ -238,6 +248,11 @@ form button:hover {
     justify-content: space-between;
     padding: 24px;
   }
+  @media (min-width: 1280px) {
+    grid-column: span 2 / span 2;
+    width: 830px;
+    height: 286px;
+  }
 }
 #search-result {
   margin: 0 auto;
@@ -282,6 +297,11 @@ form button:hover {
   gap: 16px;
   align-items: center;
   justify-content: center;
+  @media (min-width: 1280px) {
+    grid-column: span 2 / span 2;
+    grid-row-start: 2;
+    height: 200px;
+  }
 }
 #bottom-forecast div {
   background-color: var(--color-neutral700);
@@ -303,6 +323,10 @@ form button:hover {
 /*--------daily-forecast---------*/
 #daily-forecast {
   width: 91.467vw;
+  @media (min-width: 1280px) {
+    grid-column: span 2 / span 2;
+    grid-row-start: 3;
+  }
 }
 #daily-forecast h3 {
   margin-bottom: 20px;
@@ -356,6 +380,11 @@ form button:hover {
   background: var(--color-neutral800);
   border-radius: 20px;
   padding: 20px 16px;
+  @media (min-width: 1280px) {
+    grid-row: span 3 / span3;
+    grid-column-start: 3;
+    width: 400px;
+  }
 }
 #hourly-forecast-heading {
   display: flex;

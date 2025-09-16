@@ -29,6 +29,9 @@ searchBtn.addEventListener("click", async (event) => {
 
     //Vaihe 4: renderöi sää
     renderWeather(data);
+
+    //Vaihe 5: renderöi tunnittainen sää
+    renderHourlyWeather(data);
   } catch (err) {
     console.error("Virhe haussa:", err);
   }
@@ -152,3 +155,5 @@ function renderWeatherIcon(code) {
 
   return icons[code] || "../assets/images/icon-sunny.webp";
 }
+
+function renderHourlyWeather(data) {}

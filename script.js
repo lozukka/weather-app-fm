@@ -9,7 +9,7 @@ openDropdown.addEventListener("click", () => {
     dropdown.style.display = "block";
   }
 });
-
+ 
 searchBtn.addEventListener("click", async (event) => {
   event.preventDefault();
   let city = document.getElementById("city").value;
@@ -26,6 +26,8 @@ searchBtn.addEventListener("click", async (event) => {
 
     // Tyhjennä syötekenttä
     document.getElementById("city").value = "";
+    //Tyhjennä weather iconi
+    document.getElementById("weather-icon").innerHTML ="";
 
     //Vaihe 4: renderöi sää
     renderWeather(data);
@@ -91,11 +93,11 @@ function renderWeather(data) {
   resultPrecipitation.textContent = `${Math.trunc(
     data.hourly.precipitation[startIndex]
   )}mm`;
-  let resultIcon = document.getElementById("search-forecast");
+  let resultIcon = document.getElementById("weather-icon");
   let icon = document.createElement("img");
   icon.src = renderWeatherIcon(data.hourly.weather_code[startIndex]);
   icon.alt = "Weather icon";
-  resultIcon.prepend(icon);
+  resultIcon.appendChild(icon);
 
   console.log(data);
   console.log(

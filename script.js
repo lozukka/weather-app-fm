@@ -28,6 +28,8 @@ searchBtn.addEventListener("click", async (event) => {
     document.getElementById("city").value = "";
     //Tyhjennä weather iconi
     document.getElementById("weather-icon").innerHTML ="";
+    //Tyhjennä tunnittainen sää
+    document.getElementById("hourly-cards").innerHTML="";
 
     //Vaihe 4: renderöi sää
     renderWeather(data);
@@ -158,4 +160,47 @@ function renderWeatherIcon(code) {
   return icons[code] || "../assets/images/icon-sunny.webp";
 }
 
-function renderHourlyWeather(data) {}
+function renderHourlyWeather(data) {
+  let hourlyCards = document.getElementById("hourly-cards");
+
+    // nykyhetki
+  const now = new Date();
+
+  // löydä lähin tunti datasta
+  const currentHourIndex = data.hourly.time.findIndex((t) => {
+    const time = new Date(t);
+    return time.getHours() === now.getHours();
+  });
+
+  // nappaa seuraavat 8 tuntia
+  const hours = data.hourly.time.slice(currentHourIndex, currentHourIndex + 8);
+
+  //for each hour in hours
+  hours.forEach((timeStr, i) => {
+  
+  let hourlyCard = document.createElement("div");
+  hourlyCard.classList.add("hourly-card");
+
+  let imageDiv = document.createElement("div");
+  let image = document.createElement("img");
+  image.src = renderWeatherIcon(data.hourly.weather_code[currentHourIndex + i]);
+  image.alt = "Weather icon"; 
+  imageDiv.appendChild(image);
+
+  const pText = document.createElement("p");
+  const time = new Date(timeStr);
+  console.log(time);
+  pText.textContent = time.toLocaleTimeString([], { hour: "numeric" });
+  imageDiv.appendChild(pText);
+
+  hourlyCard.appendChild(imageDiv);
+
+  let temperatureText = document.createElement("p");
+  temperatureText.textContent = `${Math.trunc(
+    data.hourly.temperature_2m[currentHourIndex + i]
+  )}°`;
+  hourlyCard.appendChild(temperatureText);
+
+  hourlyCards.appendChild(hourlyCard);
+  });
+}

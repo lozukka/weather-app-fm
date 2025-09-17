@@ -197,7 +197,6 @@ function renderHourlyWeather(data) {
 
   const pText = document.createElement("p");
   const time = new Date(timeStr);
-  console.log(time);
   pText.textContent = time.toLocaleTimeString([], { hour: "numeric" });
   imageDiv.appendChild(pText);
 

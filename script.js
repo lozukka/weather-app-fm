@@ -15,27 +15,34 @@ searchBtn.addEventListener("click", async (event) => {
   let city = document.getElementById("city").value;
 
   try {
-    // Vaihe 1: hae koordinaatit
+    // Step 1: get coordinates
     const { latitude, longitude, name, country } = await getCoordinates(city);
 
-    // Vaihe 2: hae sää
+    // Step 2: get weather
     const data = await getWeather(latitude, longitude);
+    // Step 2.5: get daily weather
+    const dailyData = await getDailyWeather (latitude, longitude);
+    console.log(dailyData);
 
-    // Vaihe 3: näytä päivämäärä
+    // Step 3: Render date
     renderDate();
 
-    // Tyhjennä syötekenttä
+    // Empty searched city
     document.getElementById("city").value = "";
-    //Tyhjennä weather iconi
+    // Empty weather icon
     document.getElementById("weather-icon").innerHTML ="";
-    //Tyhjennä tunnittainen sää
+    // Empty hourly forecast
     document.getElementById("hourly-cards").innerHTML="";
+    // Empty daily forecast
+    document.getElementById("daily-cards").innerHTML="";
 
-    //Vaihe 4: renderöi sää
+    // Step 4: render weather
     renderWeather(data);
 
-    //Vaihe 5: renderöi tunnittainen sää
+    //Step 5: render hourly weather forecast
     renderHourlyWeather(data);
+    //Step 6: render daily weather forecast
+    renderDailyWeather(dailyData);
   } catch (err) {
     console.error("Virhe haussa:", err);
   }
@@ -65,6 +72,13 @@ async function getCoordinates(city) {
 // --- Funktio sään hakuun ---
 async function getWeather(latitude, longitude) {
   const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,relativehumidity_2m,windspeed_10m,precipitation,weather_code&timezone=auto`;
+
+  const response = await fetch(weatherUrl);
+  return response.json();
+}
+
+async function getDailyWeather(latitude, longitude) {
+  const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`;
 
   const response = await fetch(weatherUrl);
   return response.json();
@@ -101,7 +115,6 @@ function renderWeather(data) {
   icon.alt = "Weather icon";
   resultIcon.appendChild(icon);
 
-  console.log(data);
   console.log(
     resultTemperature.textContent,
     resultFeelsLike.textContent,
@@ -162,20 +175,15 @@ function renderWeatherIcon(code) {
 
 function renderHourlyWeather(data) {
   let hourlyCards = document.getElementById("hourly-cards");
-
-    // nykyhetki
   const now = new Date();
 
-  // löydä lähin tunti datasta
   const currentHourIndex = data.hourly.time.findIndex((t) => {
     const time = new Date(t);
     return time.getHours() === now.getHours();
   });
 
-  // nappaa seuraavat 8 tuntia
   const hours = data.hourly.time.slice(currentHourIndex, currentHourIndex + 8);
 
-  //for each hour in hours
   hours.forEach((timeStr, i) => {
   
   let hourlyCard = document.createElement("div");
@@ -203,4 +211,31 @@ function renderHourlyWeather(data) {
 
   hourlyCards.appendChild(hourlyCard);
   });
+}
+
+function renderDailyWeather(dailyData){
+  const dailyCards =document.getElementById("daily-cards");
+
+  let dailyCard = document.createElement("div");
+  dailyCard.classList.add("daily-card");
+  let day = document.createElement("h4");
+  day.textContent = "Tue";
+  dailyCard.appendChild(day);
+  const image= document.createElement("img");
+  image.src = renderWeatherIcon(dailyData.daily.weather_code[1]);
+  image.alt = "Weather icon"; 
+  dailyCard.appendChild(image);
+
+  let temperatures = document.createElement("div");
+  temperatures.classList.add("daily-temperatures");
+  let highest = document.createElement("p");
+  highest.textContent = `20°`;
+  temperatures.appendChild(highest);
+  let lowest = document.createElement("p");
+  lowest.textContent = `14°`;
+  temperatures.appendChild(lowest);
+
+  dailyCard.appendChild(temperatures);
+  dailyCards.appendChild(dailyCard);
+  console.log("done");
 }

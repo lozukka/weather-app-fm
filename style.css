@@ -85,7 +85,9 @@
 body {
   background: var(--color-neutral900);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 /*--------header---------*/
 header {
@@ -153,6 +155,7 @@ header section button img {
 
 /*--------main---------*/
 main {
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,18 +165,23 @@ main {
 }
 /*--------grid-wrapper---------*/
 #grid-wrapper {
-  @media (min-width: 1280px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--fs-l);
+  @media (min-width: 1220px) {
     display: grid;
-    grid-template-columns: repeat(3, 400px);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 30px;
-    width: 95vw;
+    width: 1216px;
   }
 }
 /*--------search-section---------*/
 #search-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-top: 48px;
   gap: 48px;
 }
@@ -185,6 +193,9 @@ h1 {
   margin-block: 0px;
   margin: 16px;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    width: 420px;
+  }
 }
 #search-bar {
   width: 91.467vw;
@@ -196,12 +207,22 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  @media screen and (min-width: 768px) {
+    width: 80%;
+    height: 56px;
+  }
 }
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    width: 720px;
+  }
 }
 form input {
   width: 80%;
@@ -209,6 +230,7 @@ form input {
   opacity: 1;
   background: none;
   border: none;
+  
 }
 form label {
   display: none;
@@ -222,6 +244,10 @@ form button {
   height: 8.3vh;
   font-size: var(--fs-s);
   line-height: var(--lh-120);
+  @media screen and (min-width: 768px) {
+    width: 20%;
+    height: 56px;
+  }
 }
 form button:hover {
   background: var(--color-blue700);
@@ -233,6 +259,7 @@ form button:hover {
   background-image: url(./assets/images/bg-today-small.svg);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -240,15 +267,15 @@ form button:hover {
   justify-content: center;
   gap: 16px;
 
-  @media screen and (min-width: 550px) {
-    background-image: url(./assets/images/bg-today-large.svg);
-  }
   @media screen and (min-width: 768px) {
+    width: 720px;
+    height: 286px;
+    background-image: url(./assets/images/bg-today-large.svg);
     flex-direction: row;
     justify-content: space-between;
     padding: 24px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1220px) {
     grid-column: span 2 / span 2;
     width: 830px;
     height: 286px;
@@ -297,9 +324,9 @@ form button:hover {
   gap: 16px;
   align-items: center;
   justify-content: center;
-  @media (min-width: 1280px) {
+  
+  @media (min-width: 1220px) {
     grid-column: span 2 / span 2;
-    grid-row-start: 2;
     height: 200px;
   }
 }
@@ -323,9 +350,15 @@ form button:hover {
 /*--------daily-forecast---------*/
 #daily-forecast {
   width: 91.467vw;
-  @media (min-width: 1280px) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  @media screen and (min-width: 768px) {
+    width: 720px;
+  }
+  @media (min-width: 1220px) {
     grid-column: span 2 / span 2;
-    grid-row-start: 3;
   }
 }
 #daily-forecast h3 {
@@ -351,6 +384,9 @@ form button:hover {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  @media screen and (min-width: 768px) {
+    width: 89px;
+  }
 }
 .daily-card h4 {
   line-height: var(--lh-120);
@@ -380,7 +416,10 @@ form button:hover {
   background: var(--color-neutral800);
   border-radius: 20px;
   padding: 20px 16px;
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
+    width: 720px;
+  }
+  @media (min-width: 1220px) {
     grid-row: span 3 / span3;
     grid-column-start: 3;
     width: 400px;
@@ -453,6 +492,7 @@ form button:hover {
 
 /*--------footer---------*/
 footer {
+  flex-shrink: 0;
   font-size: var(--fs-xxxs);
   text-align: center;
 }

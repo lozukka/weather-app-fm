@@ -1,6 +1,11 @@
 let openDropdown = document.getElementById("open-units-dropdown");
 let dropdown = document.getElementById("dropdown");
 let searchBtn = document.getElementById("search-btn");
+let weatherIconDisplay = document.getElementById("weather-icon");
+let hourlyCards = document.getElementById("hourly-cards");
+let dailyCards = document.getElementById("daily-cards");
+let errorMessage = document.getElementById("error-message");
+let cityInput = document.getElementById("city");
 
 openDropdown.addEventListener("click", () => {
   if (dropdown.style.display === "block") {
@@ -12,7 +17,18 @@ openDropdown.addEventListener("click", () => {
  
 searchBtn.addEventListener("click", async (event) => {
   event.preventDefault();
-  let city = document.getElementById("city").value;
+  let city = cityInput.value;
+
+    // Empty searched city
+    cityInput.value = "";
+    // Empty weather icon
+    weatherIconDisplay.innerHTML ="";
+    // Empty hourly forecast
+    hourlyCards.innerHTML="";
+    // Empty daily forecast
+    dailyCards.innerHTML="";
+    // Empty error message
+    errorMessage.textContent = "";
 
   try {
     // Step 1: get coordinates
@@ -27,15 +43,6 @@ searchBtn.addEventListener("click", async (event) => {
     // Step 3: Render date
     renderDate();
 
-    // Empty searched city
-    document.getElementById("city").value = "";
-    // Empty weather icon
-    document.getElementById("weather-icon").innerHTML ="";
-    // Empty hourly forecast
-    document.getElementById("hourly-cards").innerHTML="";
-    // Empty daily forecast
-    document.getElementById("daily-cards").innerHTML="";
-
     // Step 4: render weather
     renderWeather(data);
 
@@ -45,6 +52,7 @@ searchBtn.addEventListener("click", async (event) => {
     renderDailyWeather(dailyData);
   } catch (err) {
     console.error("Virhe haussa:", err);
+    errorMessage.textContent = err.message;
   }
 });
 
@@ -109,11 +117,10 @@ function renderWeather(data) {
   resultPrecipitation.textContent = `${Math.trunc(
     data.hourly.precipitation[startIndex]
   )}mm`;
-  let resultIcon = document.getElementById("weather-icon");
   let icon = document.createElement("img");
   icon.src = renderWeatherIcon(data.hourly.weather_code[startIndex]);
   icon.alt = "Weather icon";
-  resultIcon.appendChild(icon);
+  weatherIconDisplay.appendChild(icon);
 
   console.log(
     resultTemperature.textContent,
@@ -176,7 +183,6 @@ function renderWeatherIcon(code) {
 // --- Function for rendering the weathers ---
 
 function renderHourlyWeather(data) {
-  let hourlyCards = document.getElementById("hourly-cards");
   const now = new Date();
 
   const currentHourIndex = data.hourly.time.findIndex((t) => {
@@ -215,7 +221,6 @@ function renderHourlyWeather(data) {
 }
 
 function renderDailyWeather(dailyData){
-  const dailyCards =document.getElementById("daily-cards");
 
   for (let i=0; i<dailyData.daily.time.length; i++){
 

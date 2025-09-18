@@ -217,13 +217,16 @@ function renderHourlyWeather(data) {
 function renderDailyWeather(dailyData){
   const dailyCards =document.getElementById("daily-cards");
 
+  //for each day in days
+  for (let i=0; i<dailyData.daily.time.length; i++){
+
   let dailyCard = document.createElement("div");
   dailyCard.classList.add("daily-card");
   let day = document.createElement("h4");
-  day.textContent = renderWeekDays();
+  day.textContent = renderWeekDays(dailyData.daily.time[i]);
   dailyCard.appendChild(day);
   const image= document.createElement("img");
-  image.src = renderWeatherIcon(dailyData.daily.weather_code[1]);
+  image.src = renderWeatherIcon(dailyData.daily.weather_code[i]);
   image.alt = "Weather icon"; 
   dailyCard.appendChild(image);
 
@@ -238,13 +241,13 @@ function renderDailyWeather(dailyData){
 
   dailyCard.appendChild(temperatures);
   dailyCards.appendChild(dailyCard);
-  console.log("done");
+  console.log("done");}
 }
 
-function renderWeekDays(){
-  let searchDate = new Date();
+function renderWeekDays(date){
+  let weekday = new Date(date);
   let options = {
     weekday: "short"
   };
-  return searchDate.toLocaleDateString("en-US", options);
+  return weekday.toLocaleDateString("en-US", options);
 }

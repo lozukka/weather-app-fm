@@ -36,6 +36,7 @@ searchBtn.addEventListener("click", async (event) => {
 
     // Step 2: get weather
     const data = await getWeather(latitude, longitude);
+    console.log(data);
     // Step 2.5: get daily weather
     const dailyData = await getDailyWeather (latitude, longitude);
     console.log(dailyData);
@@ -111,8 +112,8 @@ function renderWeather(data) {
   )}%`;
   let resultWind = document.getElementById("wind-p");
   resultWind.textContent = `${Math.trunc(
-    data.hourly.windspeed_10m[startIndex]
-  )}km/h`;
+    data.hourly.windspeed_10m[startIndex] * 0.277778
+  )}m/s`;
   let resultPrecipitation = document.getElementById("precipitation-p");
   resultPrecipitation.textContent = `${Math.trunc(
     data.hourly.precipitation[startIndex]

@@ -328,6 +328,9 @@ form button:hover {
   @media (min-width: 1220px) {
     grid-column: span 2 / span 2;
     height: 200px;
+    width: 100%;
+    justify-content: space-between;
+    align-content: baseline;
   }
 }
 #bottom-forecast div {
@@ -335,6 +338,9 @@ form button:hover {
   border-radius: 12px;
   padding: 20px;
   width: 163px;
+  @media (min-width: 1220px) {
+    width: 180px;
+  }
 }
 #bottom-forecast div h4 {
   line-height: var(--lh-120);

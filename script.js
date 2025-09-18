@@ -60,7 +60,7 @@ searchBtn.addEventListener("click", async (event) => {
 async function getCoordinates(city) {
   const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
     city
-  )}&count=1&language=fi&format=json`;
+  )}&count=1&language=en&format=json`;
 
   const response = await fetch(geoUrl);
   const data = await response.json();

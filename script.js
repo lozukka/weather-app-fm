@@ -217,7 +217,6 @@ function renderHourlyWeather(data) {
 function renderDailyWeather(dailyData){
   const dailyCards =document.getElementById("daily-cards");
 
-  //for each day in days
   for (let i=0; i<dailyData.daily.time.length; i++){
 
   let dailyCard = document.createElement("div");

@@ -84,7 +84,7 @@
 
 body {
   background: var(--color-neutral900);
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -94,6 +94,9 @@ header {
   display: flex;
   padding: 16px;
   justify-content: space-between;
+  @media (min-width: 1220px) {
+    padding: 24px;
+  }
 }
 header img {
   height: 28px;
@@ -506,4 +509,5 @@ footer {
   flex-shrink: 0;
   font-size: var(--fs-xxxs);
   text-align: center;
+  margin: 20px
 }

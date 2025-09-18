@@ -233,10 +233,10 @@ function renderDailyWeather(dailyData){
   let temperatures = document.createElement("div");
   temperatures.classList.add("daily-temperatures");
   let highest = document.createElement("p");
-  highest.textContent = `20°`;
+  highest.textContent = `${Math.trunc(dailyData.daily.temperature_2m_max[i])}°`;
   temperatures.appendChild(highest);
   let lowest = document.createElement("p");
-  lowest.textContent = `14°`;
+  lowest.textContent = `${Math.trunc(dailyData.daily.temperature_2m_min[i])}°`;
   temperatures.appendChild(lowest);
 
   dailyCard.appendChild(temperatures);

@@ -48,7 +48,7 @@ searchBtn.addEventListener("click", async (event) => {
   }
 });
 
-// --- Funktio koordinaattien hakuun ---
+// --- Function for getting the coordinates ---
 async function getCoordinates(city) {
   const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
     city
@@ -69,7 +69,7 @@ async function getCoordinates(city) {
   return { latitude, longitude, name, country };
 }
 
-// --- Funktio sään hakuun ---
+// --- Function for getting the weathers ---
 async function getWeather(latitude, longitude) {
   const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,apparent_temperature,relativehumidity_2m,windspeed_10m,precipitation,weather_code&timezone=auto`;
 
@@ -83,7 +83,7 @@ async function getDailyWeather(latitude, longitude) {
   const response = await fetch(weatherUrl);
   return response.json();
 }
-// --- Funktio sään renderöintiin ---
+// --- Function for rendering the weather ---
 function renderWeather(data) {
   const now = new Date();
   const times = data.hourly.time;
@@ -124,7 +124,7 @@ function renderWeather(data) {
     data.hourly.weather_code[startIndex]
   );
 }
-// --- Funktio päivämäärän renderöintiin ---
+// --- Function for rendering the date ---
 function renderDate() {
   let searchDate = new Date();
   let options = {
@@ -137,7 +137,7 @@ function renderDate() {
   let resultDateDisplay = document.getElementById("search-result-date");
   resultDateDisplay.textContent = formatted;
 }
-// --- Funktio sääikonin renderöintiin ---
+// --- Function for rendering the weather icon ---
 function renderWeatherIcon(code) {
   const icons = {
     0: "../assets/images/icon-sunny.webp",
@@ -172,6 +172,8 @@ function renderWeatherIcon(code) {
 
   return icons[code] || "../assets/images/icon-sunny.webp";
 }
+
+// --- Function for rendering the weathers ---
 
 function renderHourlyWeather(data) {
   let hourlyCards = document.getElementById("hourly-cards");
@@ -218,7 +220,7 @@ function renderDailyWeather(dailyData){
   let dailyCard = document.createElement("div");
   dailyCard.classList.add("daily-card");
   let day = document.createElement("h4");
-  day.textContent = "Tue";
+  day.textContent = renderWeekDays();
   dailyCard.appendChild(day);
   const image= document.createElement("img");
   image.src = renderWeatherIcon(dailyData.daily.weather_code[1]);
@@ -237,4 +239,12 @@ function renderDailyWeather(dailyData){
   dailyCard.appendChild(temperatures);
   dailyCards.appendChild(dailyCard);
   console.log("done");
+}
+
+function renderWeekDays(){
+  let searchDate = new Date();
+  let options = {
+    weekday: "short"
+  };
+  return searchDate.toLocaleDateString("en-US", options);
 }
